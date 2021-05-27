@@ -37,9 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Character\Checks.cs" />
+     <Compile Include="Assets\Scripts\Character\Controller.cs" />
      <Compile Include="Assets\Scripts\Character\HealthSystem.cs" />
      <Compile Include="Assets\Scripts\Character\Movement.cs" />
-     <Compile Include="Assets\Scripts\Character\Controller.cs" />
      <None Include="Assets\Sprites\Top down character template by RgsDev\public-license.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Verschiedenes/Microsoft VS Code/2021.1.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
