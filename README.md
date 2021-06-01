@@ -16,5 +16,5 @@ Git-Workflow:
 - git push
 - go to merge request
 - maybe resolve merge conflicts
-- maybe "mark as ready"
-- click merge-button (only if **everything works** properly on the feature branch)
+- maybe "mark as ready"-button
+- click "merge"-button (only if **everything works** properly on the feature branch)
