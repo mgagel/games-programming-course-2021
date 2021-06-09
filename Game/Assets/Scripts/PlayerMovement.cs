@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float movespeed;
     public Rigidbody2D rb;
+    public Transform playerposition;
 
     public SpriteRenderer spriteRenderer;
     public Sprite playerfront;
@@ -14,19 +15,31 @@ public class PlayerMovement : MonoBehaviour
     public Sprite playerright;
     public Sprite playerback;
 
+    public float knockback;
+    public float knockbackLength;
+    public float knockbackCount;
+    public bool knockFromRight;
+    public bool knockFromUp;
+    public bool knockFromDown;
+    public bool knockFromLeft;
+
 
     private Vector2 moveDirection;
+
+   
 
     // Update is called once per frame
     void Update()
     {
         ProcessInputs();
+
     }
 
     // FixedUpdate is called every fixed framerate frame
     void FixedUpdate()
     {
         Move();
+        
     }
 
     void ProcessInputs()
@@ -39,9 +52,34 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * movespeed, moveDirection.y * movespeed);
-        Debug.Log("moveX: " + moveDirection.x);
-        Debug.Log("moveY: " + moveDirection.y);
+        if (knockbackCount <= 0)
+        {
+            rb.velocity = new Vector2(moveDirection.x * movespeed, moveDirection.y * movespeed);
+            knockFromDown = false;
+            knockFromUp = false;
+            knockFromLeft = false;
+            knockFromRight = false;
+        } else
+        //if player gets hit by enemy he gets pushed back:
+        {
+            if (knockFromRight)
+            {
+                rb.velocity = new Vector2(-knockback, 0f);
+            }
+            if (knockFromLeft)
+            {
+                rb.velocity = new Vector2(knockback, 0f);
+            }
+            if (knockFromUp)
+            {
+                rb.velocity = new Vector2(0f, -knockback);
+            }
+            if (knockFromDown)
+            {
+                rb.velocity = new Vector2(0f, knockback);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
 
         //when moving right
         if (moveDirection.x > 0)
@@ -64,4 +102,5 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.sprite = playerfront;
         }
     }
+
 }
