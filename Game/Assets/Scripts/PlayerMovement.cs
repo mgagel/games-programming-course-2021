@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float movespeed;
     public Rigidbody2D rb;
     public Transform playerposition;
+    public Transform firePoint;
 
     public SpriteRenderer spriteRenderer;
     public Sprite playerfront;
@@ -85,21 +86,49 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection.x > 0)
         {
             spriteRenderer.sprite = playerright;
+
+            //reposition firepoint
+            Vector3 firePointOffset = new Vector3(0.8f, 0f, 0f);
+            firePoint.position = playerposition.position + firePointOffset;
+            var rotationVector = transform.rotation.eulerAngles;
+            rotationVector.z = -90;
+            firePoint.rotation = Quaternion.Euler(rotationVector);
         }
         //when moving left
         else if (moveDirection.x < 0)
         {
             spriteRenderer.sprite = playerleft;
+
+            //reposition firepoint
+            Vector3 firePointOffset = new Vector3(-0.8f, 0f, 0f);
+            firePoint.position = playerposition.position + firePointOffset;
+            var rotationVector = transform.rotation.eulerAngles;
+            rotationVector.z = 90;
+            firePoint.rotation = Quaternion.Euler(rotationVector);
         }
         //when moving up
         else if (moveDirection.y > 0)
         {
             spriteRenderer.sprite = playerback;
+
+            //reposition firepoint
+            Vector3 firePointOffset = new Vector3(0f, 0.8f, 0f);
+            firePoint.position = playerposition.position + firePointOffset;
+            var rotationVector = transform.rotation.eulerAngles;
+            rotationVector.z = 0;
+            firePoint.rotation = Quaternion.Euler(rotationVector);
         }
         //when moving down
         else if (moveDirection.y < 0)
         {
             spriteRenderer.sprite = playerfront;
+
+            //reposition firepoint
+            Vector3 firePointOffset = new Vector3(0f, -1f, 0f);
+            firePoint.position = playerposition.position + firePointOffset;
+            var rotationVector = transform.rotation.eulerAngles;
+            rotationVector.z = 180;
+            firePoint.rotation = Quaternion.Euler(rotationVector);
         }
     }
 
