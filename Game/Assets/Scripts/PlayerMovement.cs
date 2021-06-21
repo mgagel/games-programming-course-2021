@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public bool freezePlayer = false;
     public float movespeed;
     public Rigidbody2D rb;
     public Transform playerposition;
@@ -39,8 +40,10 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called every fixed framerate frame
     void FixedUpdate()
     {
-        Move();
-        
+        if (!freezePlayer)
+        {
+            Move();
+        }
     }
 
     void ProcessInputs()

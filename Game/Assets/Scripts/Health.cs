@@ -6,6 +6,8 @@ using TMPro;
 
 public class Health : MonoBehaviour
 {
+    public PlayerMovement playerMovement;
+    public bool playerIsDead = false;
     public int maxhealth;
     public int health;
     public bool gotHit = false;
@@ -25,21 +27,26 @@ public class Health : MonoBehaviour
         {
             takeDamage();
         }
+
+        if (health < 1)
+        {
+            PlayerDeath();
+        }
+    }
+
+    void PlayerDeath()
+    {
+        gameObject.SetActive(false);
+        Debug.Log("Dead");
+        deathtext.enabled = true;
+        playerMovement.freezePlayer = true;
+        playerIsDead = true;
     }
 
     void takeDamage()
     {
         health--;
         healthtext.text = health.ToString();
-
-        if (health < 1)
-        {
-            Debug.Log("Dead");
-            deathtext.enabled = true;
-            Destroy(gameObject.GetComponent<BoxCollider2D>());
-            Destroy(gameObject.GetComponent<SpriteRenderer>());
-            
-        }
 
         gotHit = false;
     }
