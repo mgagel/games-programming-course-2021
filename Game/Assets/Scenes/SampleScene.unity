@@ -2232,6 +2232,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1896064380}
     - target: {fileID: 227327746077093642, guid: 7a00695764ae6484d8da5a829f633092, type: 3}
+      propertyPath: timeToRespawn
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 227327746077093642, guid: 7a00695764ae6484d8da5a829f633092, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1254315779}

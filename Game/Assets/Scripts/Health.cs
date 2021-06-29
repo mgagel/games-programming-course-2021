@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
         gotHit = false;
     }
 
-    void fullheal()
+    public void fullheal()
     {
         health = maxhealth;
         healthtext.text = health.ToString();

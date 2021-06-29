@@ -9,12 +9,12 @@ public class Respawn : MonoBehaviour
     public PlayerMovement playerMovement;
     public Transform respawnPoint;
     public GameObject playerPrefab;
-    public float tiomeToRespawn;
+    public float timeToRespawn;
     public float timeUntilRespawn;
 
     void Start()
     {
-        timeUntilRespawn = tiomeToRespawn;
+        timeUntilRespawn = timeToRespawn;
     }
 
     void Update()
@@ -31,11 +31,11 @@ public class Respawn : MonoBehaviour
         {
             timeUntilRespawn = timeUntilRespawn - Time.deltaTime;
         } else {
-            playerHealth.health = playerHealth.maxhealth;
+            playerHealth.fullheal();
             playerPrefab.transform.position = respawnPoint.position;
             playerHealth.deathtext.enabled = false;
             playerPrefab.SetActive(true);
-            timeUntilRespawn = tiomeToRespawn;
+            timeUntilRespawn = timeToRespawn;
             playerMovement.freezePlayer = false;
             playerHealth.playerIsDead = false;
             Debug.Log("Respawn");
