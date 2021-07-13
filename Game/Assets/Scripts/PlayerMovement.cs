@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public bool freezePlayer = false;
     public float movespeed;
     public Rigidbody2D rb;
-    public Transform playerposition;
     public Transform firePoint;
+    public Transform companionTransform;
 
     public SpriteRenderer spriteRenderer;
     public Sprite playerfront;
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public bool knockFromUp;
     public bool knockFromDown;
     public bool knockFromLeft;
+    public bool isCarryingCompanion;
+    public float pickupRange;
 
 
     private Vector2 moveDirection;
@@ -52,6 +54,29 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            PickupOrLeaveCompanion();
+        }
+    }
+
+    void PickupOrLeaveCompanion()
+    {
+        Vector3 distanceToPlayer = this.transform.position - companionTransform.position;
+        if (isCarryingCompanion)
+        {
+            movespeed = 5f;
+            isCarryingCompanion = false;
+        }
+        else
+        {
+            if (distanceToPlayer.magnitude <= pickupRange)
+            {
+                movespeed = 2.5f;
+                isCarryingCompanion = true;
+            }
+        }
     }
 
     void Move()
@@ -92,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
             //reposition firepoint
             Vector3 firePointOffset = new Vector3(0.8f, 0f, 0f);
-            firePoint.position = playerposition.position + firePointOffset;
+            firePoint.position = this.transform.position + firePointOffset;
             var rotationVector = transform.rotation.eulerAngles;
             rotationVector.z = -90;
             firePoint.rotation = Quaternion.Euler(rotationVector);
@@ -104,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
 
             //reposition firepoint
             Vector3 firePointOffset = new Vector3(-0.8f, 0f, 0f);
-            firePoint.position = playerposition.position + firePointOffset;
+            firePoint.position = this.transform.position + firePointOffset;
             var rotationVector = transform.rotation.eulerAngles;
             rotationVector.z = 90;
             firePoint.rotation = Quaternion.Euler(rotationVector);
@@ -116,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
             //reposition firepoint
             Vector3 firePointOffset = new Vector3(0f, 0.8f, 0f);
-            firePoint.position = playerposition.position + firePointOffset;
+            firePoint.position = this.transform.position + firePointOffset;
             var rotationVector = transform.rotation.eulerAngles;
             rotationVector.z = 0;
             firePoint.rotation = Quaternion.Euler(rotationVector);
@@ -128,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
             //reposition firepoint
             Vector3 firePointOffset = new Vector3(0f, -1f, 0f);
-            firePoint.position = playerposition.position + firePointOffset;
+            firePoint.position = this.transform.position + firePointOffset;
             var rotationVector = transform.rotation.eulerAngles;
             rotationVector.z = 180;
             firePoint.rotation = Quaternion.Euler(rotationVector);

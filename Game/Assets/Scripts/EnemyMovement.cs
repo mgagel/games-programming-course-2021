@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target = GameObject.FindGameObjectWithTag("Companion").GetComponent<Transform>();
     }
 
     // FixedUpdate is called every fixed framerate frame

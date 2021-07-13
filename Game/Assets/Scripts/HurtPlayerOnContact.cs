@@ -48,10 +48,12 @@ public class HurtPlayerOnContact : MonoBehaviour
             }
 
             player.knockbackCount = player.knockbackLength;
-
-            //player loses health
-            var playerhealth = collision.gameObject.GetComponent<Health>();
-            playerhealth.gotHit = true;
+        }
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Companion")
+        {
+            //character loses health
+            var health = collision.gameObject.GetComponent<Health>();
+            health.gotHit = true;
         }
 
     }
