@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class HurtPlayerOnContact : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         //player gets hit
         if (collision.gameObject.tag == "Player")
@@ -48,10 +36,12 @@ public class HurtPlayerOnContact : MonoBehaviour
             }
 
             player.knockbackCount = player.knockbackLength;
-
-            //player loses health
-            var playerhealth = collision.gameObject.GetComponent<Health>();
-            playerhealth.gotHit = true;
+        }
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Companion")
+        {
+            //character loses health
+            var health = collision.gameObject.GetComponent<Health>();
+            health.gotHit = true;
         }
 
     }
