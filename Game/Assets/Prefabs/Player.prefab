@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 212250633805048095}
   - component: {fileID: 212250633805048091}
   - component: {fileID: 212250633805048093}
+  - component: {fileID: 8579189879155580528}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -235,10 +236,7 @@ MonoBehaviour:
   flashColor: {r: 1, g: 1, b: 1, a: 0.39215687}
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   invulnerabilityDuration: 1.5
-  remainingInvulnerabilityDuration: 0
   flashDuration: 0.25
-  remainingFlashDuration: 0
-  isFlashing: 0
   healthtext: {fileID: 0}
   deathtext: {fileID: 0}
 --- !u!114 &212250633805048093
@@ -253,3 +251,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae8989f7468013438e07a89c8a57ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8579189879155580528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212250633805048089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22250f56435f97344a895a2c254018e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  SwordPrefab: {fileID: 8755040941791116565, guid: 3ce0d61cd6169204f9be2fc372542ee4, type: 3}
+  SwordAnimPrefab: {fileID: 4916906830509200542, guid: a2d758207ea22764ab0fd2e6cbd6188f, type: 3}
