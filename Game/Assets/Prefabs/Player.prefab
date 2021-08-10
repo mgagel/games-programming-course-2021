@@ -263,6 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22250f56435f97344a895a2c254018e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 212250633458352508}
   SwordPrefab: {fileID: 8755040941791116565, guid: 3ce0d61cd6169204f9be2fc372542ee4, type: 3}
   SwordAnimPrefab: {fileID: 4916906830509200542, guid: a2d758207ea22764ab0fd2e6cbd6188f, type: 3}
