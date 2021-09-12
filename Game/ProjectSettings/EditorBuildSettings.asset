@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 8f9857a9f2828cf41bad2d81b8d87117
   - enabled: 1
-    path: Assets/Scenes/BigTestScene.unity
-    guid: 6209e86a3141f6f45a25c6f3d838daf4
+    path: Assets/Scenes/TransitionToLevel1.unity
+    guid: dd601cfdeffaffc49b1a502180d8e37d
+  - enabled: 1
+    path: Assets/Scenes/FinalLevel1.unity
+    guid: b176d0acfb3a06f41ac7451059aee031
+  - enabled: 1
+    path: Assets/Scenes/TransitionToLevel2.unity
+    guid: 4cd242fe204c98b4d88ad2e67e428b3f
   m_configObjects: {}
