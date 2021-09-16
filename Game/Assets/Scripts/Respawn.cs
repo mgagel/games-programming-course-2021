@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Respawn : MonoBehaviour
 {
-
+    
     public Health playerHealth;
-    public PlayerMovement playerMovement;
-    public Transform respawnPoint;
-    public GameObject playerPrefab;
+    public Health companionHealth;
     public float timeToRespawn;
     public float timeUntilRespawn;
+    
 
     void Start()
     {
@@ -19,18 +20,20 @@ public class Respawn : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth.playerIsDead)
+        if (playerHealth.playerIsDead || companionHealth.playerIsDead)
         {
-            PlayerRespawn(respawnPoint);
+            PlayerRespawn();
         }
     }
 
-    void PlayerRespawn(Transform respawnPoint)
+    void PlayerRespawn()
     {
         if (timeUntilRespawn>0f)
         {
             timeUntilRespawn = timeUntilRespawn - Time.deltaTime;
         } else {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            /*
             playerHealth.fullheal();
             playerPrefab.transform.position = respawnPoint.position;
             playerHealth.deathtext.enabled = false;
@@ -39,6 +42,7 @@ public class Respawn : MonoBehaviour
             playerMovement.freezePlayer = false;
             playerHealth.playerIsDead = false;
             Debug.Log("Respawn");
+            */
         }
     }
 }
