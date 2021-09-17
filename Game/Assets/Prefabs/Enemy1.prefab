@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   gotHit: 0
+  gotBigHit: 0
 --- !u!114 &8320238937331994515
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 212250633805048091}
   - component: {fileID: 212250633805048093}
   - component: {fileID: 8579189879155580528}
+  - component: {fileID: 8897751238918836029}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -173,6 +174,7 @@ MonoBehaviour:
   knockFromLeft: 0
   isCarryingCompanion: 0
   pickupRange: 0.5
+  lookingDirection: 0
 --- !u!61 &212250633805048080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -266,3 +268,18 @@ MonoBehaviour:
   firePoint: {fileID: 212250633458352508}
   SwordPrefab: {fileID: 8755040941791116565, guid: 3ce0d61cd6169204f9be2fc372542ee4, type: 3}
   SwordAnimPrefab: {fileID: 4916906830509200542, guid: a2d758207ea22764ab0fd2e6cbd6188f, type: 3}
+--- !u!114 &8897751238918836029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212250633805048089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43970e44586e544ea6477b7bfa48300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 212250633458352508}
+  grenadePrefab: {fileID: 926477904299298877, guid: 31a2495f906a1164a9d916bdcbc2c46b, type: 3}
+  grenadeAmount: 0
