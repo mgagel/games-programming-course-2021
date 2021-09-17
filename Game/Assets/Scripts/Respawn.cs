@@ -11,7 +11,7 @@ public class Respawn : MonoBehaviour
     public Health companionHealth;
     public float timeToRespawn;
     public float timeUntilRespawn;
-    
+
 
     void Start()
     {

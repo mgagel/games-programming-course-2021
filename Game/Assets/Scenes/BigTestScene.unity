@@ -520,6 +520,10 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 2017066266}
+    - target: {fileID: 227327746077093642, guid: 7a00695764ae6484d8da5a829f633092, type: 3}
+      propertyPath: companionHealth
+      value: 
+      objectReference: {fileID: 1942529259}
     - target: {fileID: 7287306987433133480, guid: 7a00695764ae6484d8da5a829f633092, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -31065,6 +31069,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1942529259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6246462056497260077, guid: 3658bbe297b4d8d49bc0f2b1771ed63a, type: 3}
+  m_PrefabInstance: {fileID: 2037073558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b620ccc802da1947b0e6b7482aad2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1972789925
 GameObject:
   m_ObjectHideFlags: 0
@@ -31188,6 +31203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b1978961833ec49b2c353b1e481c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cantleavetext: {fileID: 0}
 --- !u!1 &2008318238
 GameObject:
   m_ObjectHideFlags: 0
