@@ -6,19 +6,24 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health;
     public bool gotHit;
+    public bool gotBigHit;
 
     // Update is called once per frame
     void Update()
     {
         if (gotHit == true)
         {
-            takeDamage();
+            takeDamage(1);
+        }
+        if (gotBigHit == true)
+        {
+            takeDamage(3);
         }
     }
 
-    void takeDamage()
+    void takeDamage(int damage)
     {
-        health--;
+        health -= damage;
 
         if (health < 1)
         {
@@ -26,5 +31,6 @@ public class EnemyHealth : MonoBehaviour
         }
 
         gotHit = false;
+        gotBigHit = false;
     }
 }

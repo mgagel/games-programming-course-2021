@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public bool knockFromLeft;
     public bool isCarryingCompanion;
     public float pickupRange;
+    public int lookingDirection; //0=down, 1=left, 2 =up, 3=right
 
 
     private Vector2 moveDirection;
@@ -113,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         //when moving right
         if (moveDirection.x > 0)
         {
+            lookingDirection = 3;
             spriteRenderer.sprite = playerright;
 
             //reposition firepoint
@@ -125,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         //when moving left
         else if (moveDirection.x < 0)
         {
+            lookingDirection = 1;
             spriteRenderer.sprite = playerleft;
 
             //reposition firepoint
@@ -137,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         //when moving up
         else if (moveDirection.y > 0)
         {
+            lookingDirection = 2;
             spriteRenderer.sprite = playerback;
 
             //reposition firepoint
@@ -149,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
         //when moving down
         else if (moveDirection.y < 0)
         {
+            lookingDirection = 0;
             spriteRenderer.sprite = playerfront;
 
             //reposition firepoint
