@@ -20,6 +20,8 @@ public class Health : MonoBehaviour
     public float flashDuration;
     private float remainingFlashDuration;
     private bool isFlashing;
+    public AudioSource deathsound;
+
 
 
     public TMP_Text healthtext;
@@ -66,6 +68,10 @@ public class Health : MonoBehaviour
             isOnHitInvulnerable = true;
             isFlashing = true;
             remainingInvulnerabilityDuration = invulnerabilityDuration;
+            if (health < 1 && !deathsound.isPlaying)
+            {
+                deathsound.Play();
+            }
         }
 
         gotHit = false;

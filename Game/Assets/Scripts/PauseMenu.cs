@@ -51,6 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        isGamePaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 }
