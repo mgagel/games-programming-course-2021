@@ -15,7 +15,7 @@ public class Exit : MonoBehaviour
        bool holdingCompanion = collision.gameObject.GetComponent<PlayerMovement>().isCarryingCompanion;
        if (holdingCompanion)
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene("TransitionToLevel2");
         } else
         {
             cantleavetext.enabled = true;
