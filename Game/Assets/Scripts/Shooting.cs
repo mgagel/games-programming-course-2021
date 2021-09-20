@@ -15,6 +15,7 @@ public class Shooting : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
+            shootsound.Play();
             Shoot();
         }
     }

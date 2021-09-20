@@ -175,6 +175,10 @@ public class FixedEnemyMovement : MonoBehaviour
 
             //enemy gets destroyed by exploding
             Destroy(gameObject);
+        } else
+        {
+            //enemy gets destroyed by exploding
+            Destroy(gameObject);
         }
 
 
