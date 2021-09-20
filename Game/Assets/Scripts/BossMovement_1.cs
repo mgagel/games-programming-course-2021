@@ -34,10 +34,14 @@ public class BossMovement_1 : MonoBehaviour
 
     void Update()
     {
-        updatePatternChangeRate();
-        updateMoveSpeed();
-        changePattern();
-        moveBoss();
+        float distanceToPlayer = Vector2.Distance(player.position, gameObject.transform.position);
+        if (distanceToPlayer<40.0f)
+        {
+            updatePatternChangeRate();
+            updateMoveSpeed();
+            changePattern();
+            moveBoss();
+        }
     }
 
     void moveBoss()

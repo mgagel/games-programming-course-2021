@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossShooting_1 : MonoBehaviour
 {
 
+    public Transform player;
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
@@ -31,8 +32,12 @@ public class BossShooting_1 : MonoBehaviour
 
     void Update()
     {
-        UpdateShootCooldownTime();
-        Shooting();
+        float distanceToPlayer = Vector2.Distance(player.position, gameObject.transform.position);
+        if (distanceToPlayer<40.0f)
+        {
+            UpdateShootCooldownTime();
+            Shooting();
+        }
     }
 
     void Shooting()
