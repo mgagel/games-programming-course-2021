@@ -14,12 +14,12 @@ public class BossMovement_1 : MonoBehaviour
     private bool executePattern1 = false;
     public bool laserMovement = false;
     private float pattern1Wait = 1.5f;
-    private float basePatternChangeTime = 8.0f;
+    public float basePatternChangeTime;
     public float patternChangeTime;
-    public float patternChangeWait;
+    private float patternChangeWait;
     private bool stopPatternChangeTimer = false;
     public float moveSpeedBoss;
-    public int maxHealth;
+    private int maxHealth;
 
     void Start()
     {
@@ -99,7 +99,7 @@ public class BossMovement_1 : MonoBehaviour
                         {
                             laserMovement = true;
                             transformBoss.rotation = Quaternion.Euler(0, 0, 0);
-                            rigidBodyBoss.velocity = new Vector2(moveSpeedBoss * 3f, 0);
+                            rigidBodyBoss.velocity = new Vector2(moveSpeedBoss * 2.5f, 0);
                         }
                     }
                 } else

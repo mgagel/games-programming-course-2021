@@ -11,37 +11,47 @@ public class Bullet : MonoBehaviour
         //if the shot object is an enemy and has the script Enemyhealth it will take damage
         if (collision.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            collision.gameObject.GetComponent<EnemyHealth>().gotHit = true;
-
-            //enemy gets knockbacked:
-            var enemy = collision.gameObject.GetComponent<EnemyMovement>();
-
-            float verticaldifference = Mathf.Abs(enemy.transform.position.y - transform.position.y);
-            float horizontaldifference = Mathf.Abs(enemy.transform.position.x - transform.position.x);
-
-            //bullet is left from enemy
-            if (enemy.transform.position.x > transform.position.x && horizontaldifference > verticaldifference)
+            var enemyHealth = collision.collider.GetComponent<EnemyHealth>();
+            if (enemyHealth)
             {
-                enemy.knockFromLeft = true;
-            }
-            //bullet is right of enemy
-            else if (enemy.transform.position.x < transform.position.x && horizontaldifference > verticaldifference)
-            {
-                enemy.knockFromRight = true;
-            }
-            //bullet is above of enemy
-            else if (enemy.transform.position.y < transform.position.y)
-            {
-                enemy.knockFromUp = true;
-            }
-            //bullet is below of enemy
-            else if (enemy.transform.position.y > transform.position.y)
-            {
-                enemy.knockFromDown = true;
+                enemyHealth.gotHit = true;
             }
 
-            enemy.knockbackCount = enemy.knockbackLength;
-            enemy.knocked = true;
+            var isBoss1 = collision.collider.GetComponent<BossMovement_1>();
+            if (!isBoss1)
+            {
+                //enemy gets knockbacked:
+                var enemyMM = collision.collider.GetComponent<EnemyMovement>();
+                if (enemyMM)
+                {
+                    float verticaldifference = Mathf.Abs(enemyMM.transform.position.y - transform.position.y);
+                    float horizontaldifference = Mathf.Abs(enemyMM.transform.position.x - transform.position.x);
+
+                    //bullet is left from enemy
+                    if (enemyMM.transform.position.x > transform.position.x && horizontaldifference > verticaldifference)
+                    {
+                        enemyMM.knockFromLeft = true;
+                    }
+                    //bullet is right of enemy
+                    else if (enemyMM.transform.position.x < transform.position.x && horizontaldifference > verticaldifference)
+                    {
+                        enemyMM.knockFromRight = true;
+                    }
+                    //bullet is above of enemy
+                    else if (enemyMM.transform.position.y < transform.position.y)
+                    {
+                        enemyMM.knockFromUp = true;
+                    }
+                    //bullet is below of enemy
+                    else if (enemyMM.transform.position.y > transform.position.y)
+                    {
+                        enemyMM.knockFromDown = true;
+                    }
+
+                    enemyMM.knockbackCount = enemyMM.knockbackLength;
+                    enemyMM.knocked = true;
+                }
+            }
         }
     }
 }

@@ -11,10 +11,13 @@ public class BossShooting_1 : MonoBehaviour
     public AudioSource shootsound;
     private BossMovement_1 bossMovement;
     private EnemyHealth bossHealth;
-    private float baseShootCooldownTime = 2.0f;
+    public float baseShootCooldownTime;
     private float shootCooldownTime;
     private float shootTimer;
     public int maxHealth;
+
+    private float laserDistance = 20;
+    public LineRenderer laserLineRenderer;
 
 
     void Start()
@@ -28,6 +31,7 @@ public class BossShooting_1 : MonoBehaviour
 
     void Update()
     {
+        UpdateShootCooldownTime();
         Shooting();
     }
 
@@ -36,6 +40,7 @@ public class BossShooting_1 : MonoBehaviour
         switch (bossMovement.attackPattern)
         {
             case 0:
+                laserLineRenderer.enabled = false;
                 if (shootTimer>0)
                 {
                     shootTimer -= Time.deltaTime;
@@ -47,12 +52,13 @@ public class BossShooting_1 : MonoBehaviour
                 break;
 
             case 1:
+                laserLineRenderer.enabled = false;
                 if (shootTimer>0)
                 {
                     shootTimer -= Time.deltaTime;
                 } else
                 {
-                    shootTimer = Mathf.Lerp(0.1f, baseShootCooldownTime, ((float) bossHealth.health)/((float) maxHealth));
+                    shootTimer = shootCooldownTime*0.25f;
                     ShootBullet();
                 }
                 break;
@@ -60,6 +66,7 @@ public class BossShooting_1 : MonoBehaviour
             case 2:
                 if (bossMovement.laserMovement)
                 {
+                    laserLineRenderer.enabled = true;
                     ShootLaser();
                 }
                 break;
@@ -74,8 +81,31 @@ public class BossShooting_1 : MonoBehaviour
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
+    void UpdateShootCooldownTime()
+    {
+        shootCooldownTime = Mathf.Lerp(baseShootCooldownTime*0.2f, baseShootCooldownTime, ((float) bossHealth.health)/((float) maxHealth));
+    }
+
     void ShootLaser()
     {
+        if (Physics2D.Raycast(firePoint.position, -transform.up))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(firePoint.position, -transform.up);
+            Draw2DRay(firePoint.position, hit.point);
+            var player = hit.collider.GetComponent<Health>();
+            if (player)
+            {
+                player.gotHit = true;
+            }
+        } else
+        {
+            Draw2DRay(firePoint.position, firePoint.transform.up * laserDistance);
+        }
+    }
 
+    void Draw2DRay(Vector2 startPos, Vector2 endPos)
+    {
+        laserLineRenderer.SetPosition(0, new Vector3(startPos.x, startPos.y, -1));
+        laserLineRenderer.SetPosition(1, new Vector3(endPos.x, endPos.y, -1));
     }
 }
