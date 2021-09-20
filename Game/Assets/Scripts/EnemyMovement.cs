@@ -24,6 +24,23 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Companion").GetComponent<Transform>();
     }
 
+    private void Update()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        var companion = GameObject.FindGameObjectWithTag("Companion").GetComponent<Transform>();
+
+        var distancetoplayer = Vector3.Distance(transform.position, player.position);
+        var distancetocompanion = Vector3.Distance(transform.position, companion.position);
+
+        if (distancetoplayer < distancetocompanion)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        } else
+        {
+            target = GameObject.FindGameObjectWithTag("Companion").GetComponent<Transform>();
+        }
+    }
+
     // FixedUpdate is called every fixed framerate frame
     void FixedUpdate()
     {

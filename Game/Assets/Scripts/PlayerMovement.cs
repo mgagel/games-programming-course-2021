@@ -67,14 +67,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 distanceToPlayer = this.transform.position - companionTransform.position;
         if (isCarryingCompanion)
         {
-            movespeed = 5f;
+            movespeed = 7f;
             isCarryingCompanion = false;
         }
         else
         {
             if (distanceToPlayer.magnitude <= pickupRange)
             {
-                movespeed = 2.5f;
+                movespeed = 4f;
                 isCarryingCompanion = true;
             }
         }
