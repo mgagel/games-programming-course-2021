@@ -29,16 +29,19 @@ public class MainMenu : MonoBehaviour
             easyScreen.SetActive(false);
             mediumScreen.SetActive(true);
             difficulty = 1;
+            PlayerPrefs.SetInt("difficulty", 1);
         } else if (difficulty == 1)
         {
             mediumScreen.SetActive(false);
             hardScreen.SetActive(true);
             difficulty = 2;
+            PlayerPrefs.SetInt("difficulty", 2);
         } else
         {
             hardScreen.SetActive(false);
             easyScreen.SetActive(true);
             difficulty = 0;
+            PlayerPrefs.SetInt("difficulty", 0);
         }
     }
 }
