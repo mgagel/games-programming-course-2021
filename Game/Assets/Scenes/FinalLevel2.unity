@@ -37724,11 +37724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2991831580999601624, guid: 18e08e9b4a759034c95bf26ee52589b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -181.44
+      value: -180.69
       objectReference: {fileID: 0}
     - target: {fileID: 2991831580999601624, guid: 18e08e9b4a759034c95bf26ee52589b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -317.47
+      value: -315.73
       objectReference: {fileID: 0}
     - target: {fileID: 3156550843295216287, guid: 18e08e9b4a759034c95bf26ee52589b9, type: 3}
       propertyPath: blendDistance
@@ -37792,11 +37792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9068255196551955629, guid: 18e08e9b4a759034c95bf26ee52589b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -179.26
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 9068255196551955629, guid: 18e08e9b4a759034c95bf26ee52589b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -317.09
+      value: -318
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1515077766, guid: 18e08e9b4a759034c95bf26ee52589b9, type: 3}
