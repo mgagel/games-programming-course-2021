@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 
 public class EnemyHealth : MonoBehaviour
@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public bool gotHit;
     public bool gotBigHit;
 
-    private void Start()
+    void Start()
     {
         var isBoss1 = gameObject.GetComponent<BossMovement_1>();
         int diff = PlayerPrefs.GetInt("difficulty");
@@ -67,8 +67,8 @@ public class EnemyHealth : MonoBehaviour
 
             if (isBoss1)
             {
-                SceneManager.LoadScene("EndScene");
-
+                var changeScene = GameObject.FindGameObjectWithTag("ChangeScene").GetComponent<ChangeScene>();
+                changeScene.changeSceneNow = true;
             }
         }
 
