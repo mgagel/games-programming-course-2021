@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public int normalModeHealth;
     public int health;
     public bool gotHit;
     public bool gotBigHit;
@@ -11,19 +12,31 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         var isBoss1 = gameObject.GetComponent<BossMovement_1>();
+        int diff = PlayerPrefs.GetInt("difficulty");
 
-        if (!isBoss1)
+        if (isBoss1)
         {
-            int diff = PlayerPrefs.GetInt("difficulty");
             if (diff == 0)
             {
-                health = 1;
+                health = Mathf.RoundToInt((float) (normalModeHealth*0.5));
             } else if (diff == 1)
             {
-                health = 3;
+                health = normalModeHealth;
             } else if (diff == 2)
             {
-                health = 5;
+                health = Mathf.RoundToInt((float) (normalModeHealth*1.5));;
+            }
+        } else
+        {
+            if (diff == 0)
+            {
+                health = Mathf.RoundToInt((float) (normalModeHealth*(1/3)));
+            } else if (diff == 1)
+            {
+                health = normalModeHealth;
+            } else if (diff == 2)
+            {
+                health = Mathf.RoundToInt((float) (normalModeHealth*(5/3)));
             }
         }
     }
