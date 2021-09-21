@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -57,10 +59,17 @@ public class EnemyHealth : MonoBehaviour
     void takeDamage(int damage)
     {
         health -= damage;
+        var isBoss1 = gameObject.GetComponent<BossMovement_1>();
 
         if (health < 1)
         {
             Destroy(gameObject);
+
+            if (isBoss1)
+            {
+                SceneManager.LoadScene("EndScene");
+
+            }
         }
 
         gotHit = false;

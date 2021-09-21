@@ -93,6 +93,8 @@ public class BossShooting_1 : MonoBehaviour
 
     void ShootLaser()
     {
+        Physics2D.queriesHitTriggers = false;
+
         if (Physics2D.Raycast(firePoint.position, -transform.up))
         {
             RaycastHit2D hit = Physics2D.Raycast(firePoint.position, -transform.up);
