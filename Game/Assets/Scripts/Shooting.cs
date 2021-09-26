@@ -9,11 +9,13 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
     public AudioSource shootsound;
+    public Animator animator;
+    public PlayerMovement playerMovement;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && !playerMovement.isWalking)
         {
             shootsound.Play();
             Shoot();
@@ -22,6 +24,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
+        animator.SetTrigger("shoot");
         shootsound.Play();
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

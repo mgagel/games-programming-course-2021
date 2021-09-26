@@ -8,10 +8,12 @@ public class ThrowGrenade : MonoBehaviour
     public GameObject grenadePrefab;
 
     public int grenadeAmount;
+    public Animator animator;
+    public PlayerMovement playerMovement;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q) && grenadeAmount>0)
+        if(Input.GetKeyDown(KeyCode.Q) && grenadeAmount>0 && !playerMovement.isWalking)
         {
             Throw();
         }
@@ -19,6 +21,7 @@ public class ThrowGrenade : MonoBehaviour
 
     void Throw()
     {
+        animator.SetTrigger("throw");
         grenadeAmount -= 1;
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
         GrenadeMovement gm = grenade.GetComponent<GrenadeMovement>();

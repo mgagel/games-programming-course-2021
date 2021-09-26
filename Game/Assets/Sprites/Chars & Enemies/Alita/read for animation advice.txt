@@ -1,0 +1,3 @@
+note: 
+- pickup animation ist auch absetzanimation, muss nur rückwärts abespielt werden
+- shooting und grenadethrow- animationen nach "oben" gibt es nicht, da man es eh nicht sehen würde...einfach jeweils eine "up" animation nehmen

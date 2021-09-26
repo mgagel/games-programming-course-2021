@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public bool isCarryingCompanion;
     public float pickupRange;
     public int lookingDirection; //0=down, 1=left, 2 =up, 3=right
-
-
     private Vector2 moveDirection;
+    public Animator animator;
+    public bool isWalking = false;
 
    
 
@@ -65,17 +65,19 @@ public class PlayerMovement : MonoBehaviour
     void PickupOrLeaveCompanion()
     {
         Vector3 distanceToPlayer = this.transform.position - companionTransform.position;
-        if (isCarryingCompanion)
+        if (isCarryingCompanion && !isWalking)
         {
             movespeed = 7f;
             isCarryingCompanion = false;
+            animator.SetBool("hasVok", false);
         }
         else
         {
-            if (distanceToPlayer.magnitude <= pickupRange)
+            if (distanceToPlayer.magnitude <= pickupRange && !isWalking)
             {
                 movespeed = 4f;
                 isCarryingCompanion = true;
+                animator.SetBool("hasVok", true);
             }
         }
     }
@@ -114,6 +116,9 @@ public class PlayerMovement : MonoBehaviour
         //when moving right
         if (moveDirection.x > 0)
         {
+            animator.SetInteger("lookingDirection", 1);
+            animator.SetBool("isWalking", true);
+            isWalking = true;
             lookingDirection = 3;
             spriteRenderer.sprite = playerright;
 
@@ -127,6 +132,9 @@ public class PlayerMovement : MonoBehaviour
         //when moving left
         else if (moveDirection.x < 0)
         {
+            animator.SetInteger("lookingDirection", 3);
+            animator.SetBool("isWalking", true);
+            isWalking = true;
             lookingDirection = 1;
             spriteRenderer.sprite = playerleft;
 
@@ -140,6 +148,9 @@ public class PlayerMovement : MonoBehaviour
         //when moving up
         else if (moveDirection.y > 0)
         {
+            animator.SetInteger("lookingDirection", 0);
+            animator.SetBool("isWalking", true);
+            isWalking = true;
             lookingDirection = 2;
             spriteRenderer.sprite = playerback;
 
@@ -153,6 +164,9 @@ public class PlayerMovement : MonoBehaviour
         //when moving down
         else if (moveDirection.y < 0)
         {
+            animator.SetInteger("lookingDirection", 2);
+            animator.SetBool("isWalking", true);
+            isWalking = true;
             lookingDirection = 0;
             spriteRenderer.sprite = playerfront;
 
@@ -162,6 +176,10 @@ public class PlayerMovement : MonoBehaviour
             var rotationVector = transform.rotation.eulerAngles;
             rotationVector.z = 180;
             firePoint.rotation = Quaternion.Euler(rotationVector);
+        } else
+        {
+            animator.SetBool("isWalking", false);
+            isWalking = false;
         }
     }
 
