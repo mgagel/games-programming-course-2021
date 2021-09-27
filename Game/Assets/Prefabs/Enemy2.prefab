@@ -75,10 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collidercone: {fileID: 1489222538}
-  spritedown: {fileID: 21300000, guid: f14c2fc66c163974fa5edf999045acca, type: 3}
-  spriteup: {fileID: 21300000, guid: 039d973eaf3d17343978c2f76e3b3a31, type: 3}
-  spriteleft: {fileID: 21300000, guid: 5550f6334981de04ebf753778a84cf77, type: 3}
-  spriteright: {fileID: 21300000, guid: 421b935cbeb71794c90a0a5b2feec987, type: 3}
+  spritedown: {fileID: -1304342330505829475, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteup: {fileID: -7339579723305850889, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteleft: {fileID: 2822558034817225998, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteright: {fileID: -6473143977582791863, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
   enemysprite: {fileID: 2292088497810437644}
   enemy: {fileID: 6421192885956577387}
 --- !u!1 &1812215551
@@ -179,6 +179,8 @@ GameObject:
   - component: {fileID: 2292088497810437639}
   - component: {fileID: 2292088497810437638}
   - component: {fileID: 820809049}
+  - component: {fileID: 732573830360827944}
+  - component: {fileID: 3823842711180571678}
   m_Layer: 7
   m_Name: Enemy2
   m_TagString: Enemy
@@ -242,7 +244,7 @@ SpriteRenderer:
   m_SortingLayerID: 2123190463
   m_SortingLayer: 1
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 421b935cbeb71794c90a0a5b2feec987, type: 3}
+  m_Sprite: {fileID: -1304342330505829475, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -291,7 +293,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.40399998, y: 0.39699998}
     newSize: {x: 1.6, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -346,15 +348,51 @@ MonoBehaviour:
   position3: {fileID: 0}
   position4: {fileID: 0}
   spriteRenderer: {fileID: 2292088497810437644}
-  spritePos1toPos2: {fileID: 21300000, guid: 421b935cbeb71794c90a0a5b2feec987, type: 3}
-  spritePos2toPos3: {fileID: 21300000, guid: f14c2fc66c163974fa5edf999045acca, type: 3}
-  spritePos3toPos4: {fileID: 21300000, guid: 5550f6334981de04ebf753778a84cf77, type: 3}
-  spritePos4toPos1: {fileID: 21300000, guid: 039d973eaf3d17343978c2f76e3b3a31, type: 3}
-  spriteUp: {fileID: 21300000, guid: 039d973eaf3d17343978c2f76e3b3a31, type: 3}
-  spriteDown: {fileID: 21300000, guid: f14c2fc66c163974fa5edf999045acca, type: 3}
-  spriteLeft: {fileID: 21300000, guid: 5550f6334981de04ebf753778a84cf77, type: 3}
-  spriteRight: {fileID: 21300000, guid: 421b935cbeb71794c90a0a5b2feec987, type: 3}
+  spritePos1toPos2: {fileID: -6473143977582791863, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spritePos2toPos3: {fileID: -1304342330505829475, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spritePos3toPos4: {fileID: 2822558034817225998, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spritePos4toPos1: {fileID: -7339579723305850889, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteUp: {fileID: -7339579723305850889, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteDown: {fileID: -1304342330505829475, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteLeft: {fileID: 2822558034817225998, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
+  spriteRight: {fileID: -6473143977582791863, guid: b1bb5e40786a4ce43ac52ef62655ed87, type: 3}
   movespeed: 2
   fovcone: {fileID: 1489222535}
   spottedPlayer: 0
   conesprite: {fileID: 1812215553}
+  lookingDirection: 0
+  startDestroyTimer: 0
+  destroyTimer: 0.25
+--- !u!95 &732573830360827944
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421192885956577387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b721327af0f0f14d97f84c9b46fb3f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3823842711180571678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6421192885956577387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325fe265cf79c9240998ddc7ce07dda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 732573830360827944}
+  movement: {fileID: 820809049}

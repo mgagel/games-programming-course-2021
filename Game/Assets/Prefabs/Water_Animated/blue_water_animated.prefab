@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 716880478813673062}
   - component: {fileID: 716880478813673063}
   - component: {fileID: 716880478813673060}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: blue_water_animated
   m_TagString: Untagged
   m_Icon: {fileID: 0}

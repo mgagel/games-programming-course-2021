@@ -19,6 +19,8 @@ public class BossShooting_1 : MonoBehaviour
 
     private float laserDistance = 20;
     public LineRenderer laserLineRenderer;
+    public Animator animator;
+    private bool shootingSide = false;
 
 
     void Start()
@@ -80,6 +82,16 @@ public class BossShooting_1 : MonoBehaviour
 
     void ShootBullet()
     {
+        if (!shootingSide)
+        {
+            animator.SetTrigger("shootLeft");
+            shootingSide = true;
+        } else
+        {
+            animator.SetTrigger("shootRight");
+            shootingSide = false;
+        }
+        
         shootsound.Play();
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

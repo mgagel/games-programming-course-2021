@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6315266954191204743}
   - component: {fileID: 2776915760979947319}
   - component: {fileID: 1943396450078396571}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: green_water_animated
   m_TagString: Untagged
   m_Icon: {fileID: 0}

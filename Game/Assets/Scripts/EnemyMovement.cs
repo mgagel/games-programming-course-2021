@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     public bool knockFromDown;
     public bool knockFromLeft;
     public bool knocked = false;
+    public Animator animator;
 
     void Start()
     {
@@ -38,6 +39,14 @@ public class EnemyMovement : MonoBehaviour
         } else
         {
             target = GameObject.FindGameObjectWithTag("Companion").GetComponent<Transform>();
+        }
+
+        if (target.position.x >= transform.position.x)
+        {
+            animator.SetBool("isWalkingRight", true);
+        } else
+        {
+            animator.SetBool("isWalkingRight", false);
         }
     }
 

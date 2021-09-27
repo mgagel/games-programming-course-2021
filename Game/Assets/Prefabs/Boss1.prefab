@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4325726672433773372}
   - component: {fileID: 4325726672433773373}
   - component: {fileID: 4325726672433773374}
+  - component: {fileID: 2651526218831223269}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f14c2fc66c163974fa5edf999045acca, type: 3}
+  m_Sprite: {fileID: 1559923887791466633, guid: 09f5cc2e55d805344b048ca841a58fc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   basePatternChangeTime: 7
   patternChangeTime: 0
   moveSpeedBoss: 0
+  animator: {fileID: 2651526218831223269}
 --- !u!114 &4325726672433773372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +215,7 @@ MonoBehaviour:
   baseShootCooldownTime: 2
   maxHealth: 0
   laserLineRenderer: {fileID: 4325726672433773374}
+  animator: {fileID: 2651526218831223269}
 --- !u!120 &4325726672433773374
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -312,6 +315,25 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &2651526218831223269
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4325726672433773350}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9403e8dfe8e459f4e8f749f2dc9cff01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4325726672783946981
 GameObject:
   m_ObjectHideFlags: 0

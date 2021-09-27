@@ -20,6 +20,7 @@ public class BossMovement_1 : MonoBehaviour
     private bool stopPatternChangeTimer = false;
     public float moveSpeedBoss;
     private int maxHealth;
+    public Animator animator;
 
     void Start()
     {
@@ -93,6 +94,7 @@ public class BossMovement_1 : MonoBehaviour
                         pattern1Wait = 1.5f;
                         stopPatternChangeTimer = false;
                         attackPattern = Random.Range(0,2);
+                        animator.SetBool("laser", false);
                     } else
                     {
                         if (pattern1Wait>0)
@@ -102,6 +104,7 @@ public class BossMovement_1 : MonoBehaviour
                         } else
                         {
                             laserMovement = true;
+                            animator.SetBool("laser", true);
                             transformBoss.rotation = Quaternion.Euler(0, 0, 0);
                             rigidBodyBoss.velocity = new Vector2(moveSpeedBoss * 2.5f, 0);
                         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2858440621468824551}
   - component: {fileID: 6173428345109217749}
   - component: {fileID: 6521663259731507090}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: purple_water_animated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
